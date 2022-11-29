@@ -5,5 +5,5 @@ COPY src ./src
 RUN mvn package
 
 FROM adoptopenjdk/openjdk11
-COPY target/onlinestore-0.0.1-SNAPSHOT.jar /app/application.jar
+COPY target/*.jar /app/application.jar
 ENTRYPOINT ["java","-jar","/app/application.jar"]
