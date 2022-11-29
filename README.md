@@ -301,7 +301,7 @@ Det er andre utfordringer med denne flyten også; Workflowen kjører "ok" selv o
 
 * Få først ```ci.yml```workflow til å feile fordi enhetstesten feiler. 
 * Rett deretter enhetstesten og se at pipeline kjører "ok".  
-* Workflowen skal kompilere javakoden og kjøre enhetstester på hver eneste push, *uavhengig av branch* 
+* Workflowen skal kompilere javakoden og kjøre enhetstester på hver eneste push, *uavhengig av branch* .
 
 ### Oppgave 3 
 
