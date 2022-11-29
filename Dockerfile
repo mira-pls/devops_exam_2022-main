@@ -2,6 +2,7 @@ FROM maven:3.8.3-adoptopenjdk-11 as builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
+COPY target ./target
 RUN mvn package
 
 FROM adoptopenjdk/openjdk11
