@@ -1,4 +1,4 @@
-# DevOps med gode intensjoner sss
+# DevOps med gode intensjoner
 
 ## Krav til leveransen
 
