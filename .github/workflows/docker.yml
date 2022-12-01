@@ -19,4 +19,6 @@ jobs:
           rev=$(git rev-parse --short HEAD)
           docker build -t 1021 .
           docker tag 1021 244530008913.dkr.ecr.eu-west-1.amazonaws.com/1021:$rev
+          docker tag 1021 244530008913.dkr.ecr.eu-west-1.amazonaws.com/1021:latest
           docker push 244530008913.dkr.ecr.eu-west-1.amazonaws.com/1021:$rev
+          docker push 244530008913.dkr.ecr.eu-west-1.amazonaws.com/1021:latest
