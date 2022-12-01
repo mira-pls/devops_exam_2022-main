@@ -5,5 +5,5 @@ COPY src ./src
 RUN mvn package
 
 FROM adoptopenjdk/openjdk11
-COPY target/*.jar /app/application.jar
+COPY --from=builder /app/target/*.jar /app/application.jar
 ENTRYPOINT ["java","-jar","/app/application.jar"]
