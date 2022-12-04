@@ -71,10 +71,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "metrics": [
           [
             "${var.candidate_id}",
-            "method.timed.avg",
-            "exception": "none",
-            "method": "checkout",
-            "class": "no.shoppifly.ShoppingCartController"
+            "method.timed.avg"
           ]
         ],
         "period": 300,
