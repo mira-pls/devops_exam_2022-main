@@ -77,7 +77,7 @@ resource "aws_cloudwatch_dashboard" "main" {
         "period": 300,
         "stat": "Maximum",
         "region": "eu-west-1",
-        "class": "no.shoppifly.ShoppingCartController",
+#        "class": "no.shoppifly.ShoppingCartController",
         "title": "Average time of checkout"
       }
     }
