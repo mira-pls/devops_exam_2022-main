@@ -75,7 +75,7 @@ resource "aws_cloudwatch_dashboard" "main" {
           ]
         ],
         "period": 300,
-        "stat": "Average",
+        "stat": "Maximum",
         "region": "eu-west-1",
         "title": "Average time of checkout"
       }
