@@ -56,6 +56,9 @@ Unresolved compilation problem:
 Vi fant aldi ut av hvorfor ovnernevnte problem oppstår av og til med Maven i Cloud9. Hvis du klarer å reprodusere feilen konsekvent
 og kan komme med en forklaring på hvorfor dette skjer, og hva vi kan gjøre for å fikse det, gis 5 ekstra poeng. 
 
+I følge stackoverflow der andre har fått samme feilmelding virker det som at Lombok ikke er installert riktig og at
+problemet kan løses ved å installere det på nytt
+
 ## Scenario
 
 Som DevOps-ekspert, ferdig utlært fra Høgskolen Kristiania blir du ansatt i en bedrift, "Shopifly" som selger droner, 
@@ -276,10 +279,53 @@ Beskriv med egne ord;
 
 * Hva er utfordringene med dagens systemutviklingsprosess - og hvordan vil innføring av DevOps kunne være med på å løse
   disse? Hvilke DevOps prinsipper blir brutt?
-* En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
-* Teamet overleverer kode til en annen avdelng som har ansvar for drift - hva er utfordringen med dette ut ifra et DevOps perspektiv, og hvilke gevinster kan man få ved at team han ansvar for både drift- og utvikling? 
+
+Dagens systemutviklingsprosess har mange mangler som underbygger samarbeid og effektivitet, noe som er et problem både i
+utvikling og drift av en potensiell kodebase.
+DevOps blir beskrevet som et "kulturelt skifte", samt et sett med verdier som gjør utvikling og drift enklere og mer effektivt.
+
+Et av hovedverdiene innenfor DevOpsDet er flyt-prinsippene(Lean).
+Dette går ut på å gjøre systemutviklingsprosessen så effektiv som mulig ved hjelp av å redusere "waste" i form av tidstap/flaskehalser i prosessen,
+og automatisere så mye som mulig. Det burde ikke være mange ledd i kommunikasjonskjeden, og heller ikke mye overlevering av oppgaver/arbeid. Et team 
+burde heller ikke være avhengig av at deler av teamet tar på seg ekstra ansvar for at deadlines nås. Det er viktig å gjøre hyppige push til main branch
+så det er lett å lokalisere bugs og problemer og man mister behov for harde deadlines, noe som gjøre hele prosessen mer flytende.
+Innføring av DevOps i dagens systemutviklingsprosess vil derfor være med på å skape kultur som minimerer teknisk gjeld, som strever for kontinuerlig
+forbedring, eksperimentelle og nytenkende løsninger, automatisering av repetitive prosesser/tester og skaper kode som ikke bare bygger på "utdødde løsniger",
+men til stadighet innovateres og oppfriskes.
+
+* En vanlig respons på mange feil under release av ny funksjonalitet er å gjøre det mindre hyppig, og samtidig forsøke å legge på mer kontroll og QA. 
+Hva er problemet med dette ut ifra et DevOps perspektiv, og hva kan være en bedre tilnærming?
+
+En stor del av DevOps-tankemåten er at du vil kjenne på smerte slik at du kan håndtere dette og bli sterkere. Kontinuerlig forbedring er en nøkkelverdi
+i DevOps, og hvis du da velger å release mindre hyppig gjør du deg selv en bjørnetjeneste. 
+Det er BRA å møte på bugs og problemer, og hvis du releaser ofte vil du kunne ta oppgjør med disse en etter en istedenfor å samle opp en haug med bugs
+og slippe de alle ut i en stor release en gang i året.
+
+* Teamet overleverer kode til en annen avdelng som har ansvar for drift - hva er utfordringen med dette ut ifra et DevOps perspektiv, og hvilke gevinster kan man få ved at team han ansvar for både drift- og utvikling?
+
+  Der det både tidligere og til dags dato har vært vanlig å leie inn et team som utvikler programvare
+  for ditt selskap, for så å overlevere det til en driftsavdeling som ikke har hatt noe med utviklingsprosessen å gjøre, blir det nå mer vanlig å
+  ta i bruk DevOps-prinsipper, der både produksjon og drift gjøres av samme team.
+  Når forskjellige team har ansvar for utvikling og drifting må de som drifter koden ha tillit til at de som skaper den originale
+  kodebasen utvikler kode som er enkel å vedlikeholde og videreutvikle, og at de ikke kommer til å påføre vedlikeholdsteamet mye teknisk gjeld.
+  Med andre ord: hvis utviklingsteam ikke har "penger i potten"/"skin in the game" kommer de ikke til å føle på noe personlig tap ved dårlig prestasjon.
+  Dette kan lede til bl.a at problemer i den originale koden som er vanskelig å løse leder til at man prøver å tette hullene i koden med å lage 
+  "gaffateip"-løsninger på toppen av den gamle koden. Dette leder til mer og mer "spagettikode" og mye teknisk gjeld.
+  Når samme team utvikler og drifter koden vil alle være klar over at snarveier i utviklingen vil være deres eget problem senere i prosessen,
+  og at det vil lønne seg å være grundig, og skape et solid grunnlag for fremtidig arbeid.
+  
+
 * Å release kode ofte kan også by på utfordringer. Beskriv hvilke- og hvordan vi kan bruke DevOps prinsipper til å redusere
   eller fjerne risiko ved hyppige leveraner.
+
+  Hyppig release kan bli et problem grunnet kortere tid til å lokalisere bugs. Om man ofte releaser bugs til brukere vil dette lede til lavere tillit
+  til produktet, minsket brukerfornøyelse, og mye stress for utviklerene. 
+  Det finnes flere måter å gjøre hyppig release tryggere og mer effektivt.
+  En ting du kan gjøre er å ha et testmiljø, noe som er en tilnærming brukt innenfor spillutvikling. Brukerne av testmiljøet er klar over at det de 
+  opplever er et uferdig produkt, men fordi de får oppleve funksjonalitet før det offesielt blir releaset er dette et kompromiss de er villige til
+  å inngå.
+  En annen tilnærming er å kun release til en tilfeldig lav prosentandel av brukerbasen. Dermed kan man basere seg på feedback fra den utvalgte
+  brukergruppen før man enten trekker tilbake koden eller releaser det til resten av brukerne. 
 
 ## Del 2 - CI
 
@@ -312,6 +358,13 @@ at
 * Kode kan merges til main branch ved å lage en Pull request med minst en godkjenning
 * Kode kan merges til main bare når feature branchen som pull requesten er basert på, er verifisert av GitHub Actions.
 
+i github: 
+settings > branches > Add branch protection rule:
+velg releasebranch
+[ ] Require pull request before merging
+  [ ] Require approvals -> choose number of approvals in dropdown
+[ ] Require status checks to pass before merging
+
 ## Del 3 - Docker
 
 Applikasjonen er laget for å pushe et container image til Docker Hub. 
@@ -321,6 +374,9 @@ Det ligger en ```Dockerfile``` i prosjektet, og en workflow fil som heter ```doc
 ### Oppgave 1
 
 Beskriv hva du må gjøre for å få workflow til å fungere med din DockerHub konto? Hvorfor feiler workflowen? 
+
+For å få workflowen til å virke måtte jeg legge til docker konto i github secrets fordi github actions ikke 
+fant brukernavn og passord før jeg gjorde dette. 
 
 ### Oppgave 2
 
@@ -363,6 +419,9 @@ Et privat ECR repository i AWS er en bedre løsning.
 * Lag dit eget ECR repository med kandidatnummer som navn, enten ved hjelp av UI - eller ved hjelp av CLI.
 * Endre ```docker.yml```, workflow til å pushe docker container til Amazon ECR, istedet for docker hub
 * Beskriv deretter med egne ord hva sensor må gjøre for å få sin fork til å laste opp container image til sitt eget ECR repo.
+  Gå inn i ECR repositoriet og kopier kommandoer fra popup etter du har klikket på 'view push commands' i repositoriet.
+  legg disse inn nederst i docker workflow
+  legg til brukernavn og passord i github secrets
 * Docker workflow skal pushe et container image med en tag som er lik GitHub commit hash (id); for eksempel ```244530008913.dkr.ecr.eu-west-1.amazonaws.com/glenn_exam_practice:8234efc```
 
 ## Del 4 - Metrics, overvåkning og alarmer
@@ -407,6 +466,11 @@ De kommenterte derfor bare ut S3 bucket koden, og gikk videre til neste oppgave.
 Se på ```provider.tf filen```. 
 
 * Forklar med egne ord. Hva er årsaken til dette problemet? Hvorfor forsøker Terraform å opprette en bucket, når den allerede eksisterer? 
+
+  hvis du ikke spesifiserer en backend i provider.tf så lager den en ny state-fil hver gang du starter workflowen, og denne er ikke informert
+  om den eksisterende bucketen, noe som betyr at den vil forsøke å lage bucketen på nytt, til tross for at den allerede eksisterer og dermed
+  at navnet allerede er i bruk. Dette kan løses ved at du i provider.tf filen legger til en backend som viser til den eksisterende bucketen.
+
 * Gjør nødvendige Endre slik denne slik at Terraform kan kjøres flere ganger uten å forsøke å opprette ressurser hver gang den kjører.
 * Fjern kommentarene fra ```databacket.tf``` slik at Terraform-koden  også lager en S3 bucket. 
 
