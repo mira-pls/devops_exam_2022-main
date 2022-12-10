@@ -1,5 +1,8 @@
 # DevOps med gode intensjoner
 
+# NB! Laptopen min døde noen uker før eksamen og jeg lånte macen til broren min under denne eksamen. 
+# De første commitsene mine er under hans navn siden jeg slet med å logge ut av kontoen hans i intelliJ.
+
 ## Krav til leveransen
 
 * Eksamensoppgaven er gitt på GitHub repository ; ~~https://github.com/PGR301-2022/eksamen_2022~~
